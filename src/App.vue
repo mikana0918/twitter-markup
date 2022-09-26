@@ -5,51 +5,61 @@ import TheWelcome from "./components/TheWelcome.vue";
 
 <template>
   <div id="app">
-    <header>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="./assets/logo.svg"
-        width="125"
-        height="125"
-      />
-
-      <div class="wrapper">
-        <HelloWorld msg="You did it!" />
+    <div class="container">
+      <!-- sidebar -->
+      <div class="sidebar">
+        <img src="/twitter-icon.svg" class="twitter-icon" />
+        <div class="menu-items">
+          <img src="/home-icon.svg" class="home-icon"/>
+          <div>
+            HOME
+          </div>
+        </div>
       </div>
-    </header>
+      <!-- timeline -->
+      <div class="timeline">
 
-    <main>
-      <TheWelcome />
-    </main>
-  </div>
+      </div>
+      <!-- trends -->
+      <div class="trends">
+
+      </div>
+    </div>
+  </div> 
+
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.container{
+ /* padding: 19.75px  25.94px; */
+ display: flex;
+ background-color:black;
+ height:100vh;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.sidebar{
+ background-color:black;
+ width: 275px;
+ height:100vh;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.timeline{
+ background-color: aqua;
+ height: 100vh;
+ width: 600px;
+}
+.trends{
+ background-color: yellow;
+ height: 100vh;
+ width: 360px;  
+}
+.menu-items{
+  display: flex;
+  margin:0 25.94px ;
+  color:white;
+}
+.home-icon{
+  margin-right: 21px;
+}
+.twitter-icon{
+  margin: 19.75px  25.94px; 
 }
 </style>
