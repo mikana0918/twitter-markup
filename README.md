@@ -1,4 +1,9 @@
 # twitter-markup
+![alt text](https://github.com/mikana0918/twitter-markup/blob/main/imgs/example.png?raw=true)
+
+■デザインカンプ
+https://www.figma.com/file/PcQJNOAOEzE5SGmltN08jy/Twitter-UI-Clone-Design-(Community)?node-id=102%3A2022
+
 ## CLIコマンド
 ```bash
 #1. パッケージをインストール
