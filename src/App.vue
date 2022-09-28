@@ -25,14 +25,37 @@ import TheWelcome from "./components/TheWelcome.vue";
           Home
         </div>
         <div class="tweet-editor">
+           <!-- TODO: ここをinputタグに変えること -->
           What's Happening?
           <div class="tweet-bottun-timeline">
-             Tweet
+            Tweet
           </div>
         </div>
-        <dov class="new-tweet">
-
-        </dov>
+        <div class="new-tweet">
+          <!-- ツイート本体 -->
+          <div class="tweet-container">
+            <!-- アイコンの入る箱 -->
+            <div>
+              <img src="/bird.svg" class="bird" />
+            </div>
+            <!-- ツイートを入れる箱 -->
+            <div>
+              <div class="user-info">
+                <div class="user-name">CCO</div>
+                <img src="/authorize-mark.svg" class="authorize-mark">
+                <div class="tweet-date">
+                  Oct 4
+                </div>
+              </div>
+              <div class="tweet">
+                ツイート
+              </div>
+              <div class=action-bottun>
+                <img src="/reply.svg" class="">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- trends -->
       <div class="trends">
@@ -60,24 +83,23 @@ import TheWelcome from "./components/TheWelcome.vue";
 
 <style scoped>
 .container{
- padding: 19.75px  25.94px;
- display: flex;
- background-color:black;
- height:100vh;
+  padding: 19.75px  25.94px;
+  display: flex;
+  background-color:black;
+  height:100vh;
 }
 .sidebar{
- background-color:black;
- width: 275px;
- height:100vh;
- border-right:solid 1px #6E767D;
+  background-color:black;
+  width: 275px;
+  height:100vh;
+  border-right:solid 1px #6E767D;
 }
 .timeline{
- background-color: black;
- border-right:solid 1px gray;
- color:white;
- height: 100vh;
- width: 600px;
-
+  background-color: black;
+  border-right:solid 1px gray;
+  color:white;
+  height: 100vh;
+  width: 600px;
 }
 .timeline-title{
   margin:5px  25.94px; 
@@ -90,24 +112,24 @@ import TheWelcome from "./components/TheWelcome.vue";
   padding-bottom:50px;
 }
 .tweet-bottun-timeline{
- position:absolute;
- font-size:5px;
- color:white;
- text-align:center;
- border:solid;
- border-color:#1D9BF0;
- background:#1D9BF0;
- border-radius: 80px;
- margin-left:520px;
- padding-top:5px;
- padding-bottom:5px;
- width: 70px;
- margin-top: 10px; 
+  position:absolute;
+  font-size:5px;
+  color:white;
+  text-align:center;
+  border:solid;
+  border-color:#1D9BF0;
+  background:#1D9BF0;
+  border-radius: 80px;
+  margin-left:520px;
+  padding-top:5px;
+  padding-bottom:5px;
+  width: 70px;
+  margin-top: 10px; 
 }
 .trends{
- background-color: black;
- height: 100vh;
- width: 360px;  
+  background-color: black;
+  height: 100vh;
+  width: 360px;  
 }
 .menu-items{
   display: flex;
@@ -121,56 +143,80 @@ import TheWelcome from "./components/TheWelcome.vue";
   margin: 19.75px  25.94px; 
 }
 .tweet-bottun{
- position:absolute;
- color:white;
- text-align:center;
- border:solid;
- border-color:#1D9BF0;
- background:#1D9BF0;
- border-radius: 80px;
- margin-left:25px;
- margin-top:10px;
- padding-top:15px;
- padding-bottom:15px;
- width: 225px;
+  position:absolute;
+  color:white;
+  text-align:center;
+  border:solid;
+  border-color:#1D9BF0;
+  background:#1D9BF0;
+  border-radius: 80px;
+  margin-left:25px;
+  margin-top:10px;
+  padding-top:15px;
+  padding-bottom:15px;
+  width: 225px;
 }
 .twitter-search{
- position:absolute;
- color:gray;
- text-align:center;
- border:solid;
- border-color:gray;
- border-radius: 80px;
- margin-left:25px;
- margin-top:10px;
- padding-top:10px;
- padding-bottom:10px;
- width: 320px;
+  position:absolute;
+  color:gray;
+  text-align:center;
+  border:solid;
+  border-color:gray;
+  border-radius: 80px;
+  margin-left:25px;
+  margin-top:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  width: 320px;
 }
 .trends-for-you{
- position:absolute;
- color:white;
- border:solid;
- border-color:gray;
- border-radius: 25px;
- margin-left:25px;
- margin-top:70px;
- padding-top:10px;
- padding-bottom:200px;
- padding-left: 10px;
- width: 320px;
+  color:white;
+  border:solid;
+  border-color:gray;
+  border-radius: 25px;
+  margin-left:25px;
+  margin-top:70px;
+  padding-top:10px;
+  padding-bottom:200px;
+  padding-left: 10px;
+  width: 320px;
 }
 .who-to-follow{
- position:absolute;
- color:white;
- border:solid;
- border-color:gray;
- border-radius: 25px;
- margin-left:25px;
- margin-top:320px;
- padding-top:10px;
- padding-bottom:220px;
- padding-left: 10px;
- width: 320px;
+  color:white;
+  border:solid;
+  border-color:gray;
+  border-radius: 25px;
+  margin-left:25px;
+  margin-top:320px;
+  padding-top:10px;
+  padding-bottom:220px;
+  padding-left: 10px;
+  width: 320px;
+}
+.tweet-container{
+  display:flex;
+  min-height:113px;
+  padding:12px 16px;
+  border-bottom:solid 1px gray;
+}
+.bird{
+  margin-right:12px;
+}
+.user-info{
+  display:flex;
+  font-size:15px;
+}
+.user-name{
+  margin-right:3.25px;
+  font-weight:700;
+}
+.authorize-mark{
+  margin-right:3.25px;
+}
+.tweet-date{
+  color:gray;
+}
+.action-bottun{
+
 }
 </style>
