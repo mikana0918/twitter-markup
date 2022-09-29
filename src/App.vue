@@ -1,6 +1,56 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
+import Tweet from "./components/Tweet.vue"
+
+const data = [
+  {
+    userName: "CCO",
+    isAuthorized: true,
+    date: "Oct 4",
+    tweet: "この世は所詮、弱肉強食・・・青紫、貴様は弱いのだ！",
+    replyCount: "22.4k",
+    favoriteCount: "785.4k",
+    retweetCount: "3.3M",
+  },
+  {
+    userName: "CCO",
+    isAuthorized: true,
+    date: "Oct 4",
+    tweet: "この世は所詮、弱肉強食・・・青紫、貴様は弱いのだ！",
+    replyCount: "22.4k",
+    favoriteCount: "785.4k",
+    retweetCount: "3.3M",
+  },
+  {
+    userName: "CCO",
+    isAuthorized: true,
+    date: "Oct 4",
+    tweet: "この世は所詮、弱肉強食・・・青紫、貴様は弱いのだ！",
+    replyCount: "22.4k",
+    favoriteCount: "785.4k",
+    retweetCount: "3.3M",
+  },
+  {
+    userName: "CCO",
+    isAuthorized: true,
+    date: "Oct 4",
+    tweet: "この世は所詮、弱肉強食・・・青紫、貴様は弱いのだ！",
+    replyCount: "22.4k",
+    favoriteCount: "785.4k",
+    retweetCount: "3.3M",
+  },
+  {
+    userName: "AOC",
+    isAuthorized: true,
+    date: "Oct 4",
+    tweet: "支店を板に吊るしてギリギリ太るカレーセット！俺はちなみに今晩は豚バラ野菜炒めを作ったンゴ。",
+    replyCount: "22.4k",
+    favoriteCount: "785.4k",
+    retweetCount: "3.3M",
+    imgSrc: "/curry.jpeg"
+  },
+]
 </script>
 
 <template>
@@ -24,37 +74,33 @@ import TheWelcome from "./components/TheWelcome.vue";
         <div class="timeline-title">
           Home
         </div>
-        <div class="tweet-editor">
-           <!-- TODO: ここをinputタグに変えること -->
-          What's Happening?
-          <div class="tweet-bottun-timeline">
-            Tweet
+        <div class="editor">
+          <div class="editor-draft">
+            <div>
+                <img src="/bird.svg" class="bird" />
+            </div>
+            <textarea placeholder="What's Happening?" class="tweet-editor"></textarea>
+          </div>    
+          <!-- ボタン本体 -->
+          <div class="editor-control">
+            <div class="tweet-bottun-timeline">
+              Tweet
+            </div>
           </div>
-        </div>
+        </div>  
         <div class="new-tweet">
-          <!-- ツイート本体 -->
-          <div class="tweet-container">
-            <!-- アイコンの入る箱 -->
-            <div>
-              <img src="/bird.svg" class="bird" />
-            </div>
-            <!-- ツイートを入れる箱 -->
-            <div>
-              <div class="user-info">
-                <div class="user-name">CCO</div>
-                <img src="/authorize-mark.svg" class="authorize-mark">
-                <div class="tweet-date">
-                  Oct 4
-                </div>
-              </div>
-              <div class="tweet">
-                ツイート
-              </div>
-              <div class=action-bottun>
-                <img src="/reply.svg" class="">
-              </div>
-            </div>
-          </div>
+          <Tweet 
+            v-for="(d, idx) in data"
+            :key="idx"
+            :user-name="d.userName" 
+            :is-authorized="d.isAuthorized" 
+            :date="d.date" 
+            :tweet="d.tweet" 
+            :reply-count="d.replyCount"
+            :favorite-count="d.favoriteCount"
+            :retweet-count="d.retweetCount"
+            :img-src="d.imgSrc"
+          />
         </div>
       </div>
       <!-- trends -->
@@ -100,19 +146,27 @@ import TheWelcome from "./components/TheWelcome.vue";
   color:white;
   height: 100vh;
   width: 600px;
+  overflow: scroll;
 }
 .timeline-title{
   margin:5px  25.94px; 
 }
 .tweet-editor{
+  background-color: black;
   color:#6E767D;
   font-size:18px;
-  border-top:1px solid gray;
-  border-bottom:1px solid gray;
-  padding-bottom:50px;
+  border: none;
+  width:490px;
+  height: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  white-space: normal;
+  resize: none;
+  overflow: hidden
 }
 .tweet-bottun-timeline{
-  position:absolute;
+  /* position:absolute; */
   font-size:5px;
   color:white;
   text-align:center;
@@ -120,7 +174,7 @@ import TheWelcome from "./components/TheWelcome.vue";
   border-color:#1D9BF0;
   background:#1D9BF0;
   border-radius: 80px;
-  margin-left:520px;
+  /* margin-left:520px; */
   padding-top:5px;
   padding-bottom:5px;
   width: 70px;
@@ -156,6 +210,16 @@ import TheWelcome from "./components/TheWelcome.vue";
   padding-bottom:15px;
   width: 225px;
 }
+.editor-draft{
+  display: flex;
+}
+.editor{
+  padding:12px 16px;
+}
+.editor-control{
+  display: flex;
+  justify-content: flex-end;
+}
 .twitter-search{
   position:absolute;
   color:gray;
@@ -187,7 +251,7 @@ import TheWelcome from "./components/TheWelcome.vue";
   border-color:gray;
   border-radius: 25px;
   margin-left:25px;
-  margin-top:320px;
+  margin-top:15px;
   padding-top:10px;
   padding-bottom:220px;
   padding-left: 10px;
@@ -217,6 +281,26 @@ import TheWelcome from "./components/TheWelcome.vue";
   color:gray;
 }
 .action-bottun{
-
+  display:flex;
+  margin-top: 20px;
+  color: gray;
+}
+.reply{
+  margin-right: 20px;
+}
+.reply-number{
+  margin-right: 40px;
+}
+.favorite{
+  margin-right: 20px;
+}
+.favorite-number{
+  margin-right: 40px;
+}
+.retweet{
+  margin-right: 20px;
+}
+.retweet-number{
+  margin-right: 40px;
 }
 </style>
