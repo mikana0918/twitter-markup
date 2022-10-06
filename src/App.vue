@@ -56,8 +56,8 @@ const data = [
 <template>
   <div id="app">
     <div class="container">
-      <!-- sidebar -->
-      <div class="sidebar">
+      <!-- sidebar左側のやつ！ -->
+      <div class="sidebar">    
         <img src="/twitter-icon.svg" class="twitter-icon" />
         <div class="menu-items">
           <img src="/home-icon.svg" class="home-icon"/>
@@ -66,7 +66,18 @@ const data = [
           </div>
         </div>
         <div class="tweet-bottun">
-          Tweet
+        Tweet
+        </div>
+        <div class="myaccount">
+          <img src="/Profile-Photo.svg" class="Profile-Photo" />
+              <div class="my-username">
+                  ホモレモン
+                  <div class="my-usernameid">@homolemon</div>
+              </div>
+            <img src="/key-account.svg" class="key-account" />  
+            <div class="myaccount-option">
+              ...
+            </div>  
         </div>
       </div>
       <!-- timeline -->
@@ -111,25 +122,105 @@ const data = [
         </div>
         <div class="trends-for-you">
           Trends For You
-        </div>
-        <div class="trends-1">
-
-        </div>
-        <div class="trends-2">
-
-        </div>
+            <div class="trends-1">
+              <div class="trends-line1">
+                <div>Trending in Japan</div>
+                <div>...</div>
+              </div>
+              <div class="trends-line2">
+                愛した人はNEET
+              </div>
+              <div class="trends-line3">
+                3,345 Tweets
+              </div>
+            </div>
+            <div class="trends-2">
+              <div class="trends-line1">
+                <div>Trending in Japan</div>
+                <div>...</div>
+              </div>
+              <div class="trends-line2">
+                ノンケの尻足りん
+              </div>
+              <div class="trends-line3">
+                3,345 Tweets
+              </div>
+            </div>
+            <div class="trends-3">
+              <div class="trends-line1">
+                <div>Trending in Japan</div>
+                <div>...</div>
+              </div>
+              <div class="trends-line2">
+                ぐぐランカー！！！
+              </div>
+              <div class="trends-line3">
+                3,345 Tweets
+              </div>
+            </div>
+            <div class="trends-4">
+              <div class="trends-line1">
+                <div>Trending in Japan</div>
+                <div>...</div>
+              </div>
+              <div class="trends-line2">
+                ノーパンスタイリスト！！！
+              </div>
+              <div class="trends-line3">
+                3,345 Tweets
+              </div>
+            </div>
+            <div class="showmore">
+              Show More
+            </div>
+          </div>
         <div class="who-to-follow">
           Who To Follow
-        </div>
+          <div class="recommend-user">
+            <img src="/thenewyorktimes.svg" class="thenewyorktimes" />
+              <div class="recommend-username">
+                  The New York Times
+                  <div class="recommend-usernameid">@nytimes</div>
+              </div>
+            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
+            <div class="recommend-user-follow">
+              Follow
+            </div>  
+          </div>
+          <div class="recommend-user">
+            <img src="/cnn.svg" class="cnn" />
+              <div class="recommend-username">
+                  CNN
+                  <div class="recommend-usernameid">@CNN</div>
+              </div>
+            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
+            <div class="recommend-user-follow">
+              Follow
+            </div>  
+          </div>
+          <div class="recommend-user">
+            <img src="/bird.svg" class="twitter" />
+              <div class="recommend-username">
+                  Twitter
+                  <div class="recommend-usernameid">@twitter</div>
+              </div>
+            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
+            <div class="recommend-user-follow">
+              Follow
+            </div>  
+          </div>
+          <div class="showmore">
+              Show More
+          </div>
+        </div> 
       </div>
     </div>
-  </div> 
-
+  </div>
 </template>
 
 <style scoped>
 .container{
-  padding: 19.75px  25.94px;
+  /* padding: 19.75px  25.94px; */
   display: flex;
   background-color:black;
   height:100vh;
@@ -137,14 +228,14 @@ const data = [
 .sidebar{
   background-color:black;
   width: 275px;
-  height:100vh;
+  height:150vh;
   border-right:solid 1px #6E767D;
 }
 .timeline{
   background-color: black;
   border-right:solid 1px gray;
   color:white;
-  height: 100vh;
+  height: 150vh;
   width: 600px;
   overflow: scroll;
 }
@@ -182,8 +273,9 @@ const data = [
 }
 .trends{
   background-color: black;
-  height: 100vh;
-  width: 360px;  
+  height: 150vh;
+  width: 400px;  
+  overflow: scroll;
 }
 .menu-items{
   display: flex;
@@ -215,6 +307,8 @@ const data = [
 }
 .editor{
   padding:12px 16px;
+  border-top: solid 1px gray;
+  border-bottom: solid 1px gray;
 }
 .editor-control{
   display: flex;
@@ -222,10 +316,11 @@ const data = [
 }
 .twitter-search{
   position:absolute;
-  color:gray;
+  color:#6E767D;
   text-align:center;
   border:solid;
-  border-color:gray;
+  border-color:#202327;
+  background-color: #202327;
   border-radius: 80px;
   margin-left:25px;
   margin-top:10px;
@@ -234,28 +329,34 @@ const data = [
   width: 320px;
 }
 .trends-for-you{
-  color:white;
+  color:#D9D9D9;
   border:solid;
-  border-color:gray;
+  border-color:#202327;
   border-radius: 25px;
   margin-left:25px;
   margin-top:70px;
   padding-top:10px;
-  padding-bottom:200px;
-  padding-left: 10px;
+  padding-bottom:10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 320px;
+  font-weight: bold;
+  background-color:#202327;
 }
 .who-to-follow{
-  color:white;
+  color:#D9D9D9;
   border:solid;
-  border-color:gray;
+  border-color:#202327;
   border-radius: 25px;
   margin-left:25px;
-  margin-top:15px;
+  margin-top:20px;
   padding-top:10px;
-  padding-bottom:220px;
-  padding-left: 10px;
+  padding-bottom:10px;
+  padding-left: 20px;
+  padding-right: 20px;
   width: 320px;
+  font-weight: bold;
+  background-color:#202327;
 }
 .tweet-container{
   display:flex;
@@ -302,5 +403,90 @@ const data = [
 }
 .retweet-number{
   margin-right: 40px;
+}
+.trends-line1{
+  font-size: 13px;
+  color: gray;
+  display: flex;
+  justify-content: space-between;
+}
+.trends-line2{
+  font-size: 15px;
+}
+.trends-line3{
+  font-size: 13px;
+  color: gray;
+}
+.trends-1{
+  margin-top: 20px;
+}
+.trends-2{
+  margin-top: 20px;
+}
+.trends-3{
+  margin-top: 20px;
+}
+.trends-4{
+  margin-top: 20px;
+}
+.showmore{
+  margin-top: 20px;
+  font-weight: bold;
+  color: #1D9BF0;
+}
+.recommend-user{
+  display: flex;
+  margin-top: 20px;
+}
+.recommend-username{
+  display: block;
+  color: white;
+  margin-left: 10px;
+}
+.recommend-usernameid{
+  color: #6E767D;
+  font-size: 15px;
+}
+.recommend-user-follow{
+  position: absolute;
+  margin-left: 10px;
+  margin-left: 235px;
+  border: solid 1px black;
+  border-radius: 25px;
+  padding: 3px 9px;
+  background-color: white;
+  color: black;
+  font-size: 13px;
+}
+.recommend-authorize-mark{
+  position: relative;
+  margin-bottom: 22px;
+}
+.myaccount{
+  width: 251;
+  height: 64;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-left: 30px;
+  margin-bottom: 12px;
+}
+.my-username{
+  display: block;
+  color: white;
+  margin-left: 12px;
+}
+.my-usernameid{
+  color: #6E767D;
+}
+.key-account{
+  position: relative;
+  margin-bottom: 30px;
+}
+.myaccount-option{
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 8px;
+  color: white;
 }
 </style>
