@@ -3,6 +3,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
 import Tweet from "./components/Tweet.vue"
 
+
 const data = [
   {
     userName: "志々雄",
@@ -122,7 +123,7 @@ const data = [
         </div>
         <div class="trends-for-you">
           Trends For You
-            <div class="trends-1">
+            <div class="trends-contents">
               <div class="trends-line1">
                 <div>Trending in Japan</div>
                 <div>...</div>
@@ -134,7 +135,7 @@ const data = [
                 3,345 Tweets
               </div>
             </div>
-            <div class="trends-2">
+            <div class="trends-contents">
               <div class="trends-line1">
                 <div>Trending in Japan</div>
                 <div>...</div>
@@ -146,7 +147,7 @@ const data = [
                 3,345 Tweets
               </div>
             </div>
-            <div class="trends-3">
+            <div class="trends-contents">
               <div class="trends-line1">
                 <div>Trending in Japan</div>
                 <div>...</div>
@@ -158,7 +159,7 @@ const data = [
                 3,345 Tweets
               </div>
             </div>
-            <div class="trends-4">
+            <div class="trends-contents">
               <div class="trends-line1">
                 <div>Trending in Japan</div>
                 <div>...</div>
@@ -228,16 +229,19 @@ const data = [
 .sidebar{
   background-color:black;
   width: 275px;
-  height:150vh;
+  height:100vh;
   border-right:solid 1px #6E767D;
 }
 .timeline{
   background-color: black;
   border-right:solid 1px gray;
   color:white;
-  height: 150vh;
+  height: 100vh;
   width: 600px;
   overflow: scroll;
+}
+.timeline::-webkit-scrollbar {
+  display:none;
 }
 .timeline-title{
   margin:5px  25.94px; 
@@ -254,7 +258,7 @@ const data = [
   box-sizing: border-box;
   white-space: normal;
   resize: none;
-  overflow: hidden
+  overflow: hidden;
 }
 .tweet-bottun-timeline{
   /* position:absolute; */
@@ -273,9 +277,13 @@ const data = [
 }
 .trends{
   background-color: black;
-  height: 150vh;
+  height: 100vh;
   width: 400px;  
   overflow: scroll;
+  -ms-overflow-style: none;
+}
+.trends::-webkit-scrollbar {
+  display:none;
 }
 .menu-items{
   display: flex;
@@ -417,16 +425,7 @@ const data = [
   font-size: 13px;
   color: gray;
 }
-.trends-1{
-  margin-top: 20px;
-}
-.trends-2{
-  margin-top: 20px;
-}
-.trends-3{
-  margin-top: 20px;
-}
-.trends-4{
+.trends-contents{
   margin-top: 20px;
 }
 .showmore{
