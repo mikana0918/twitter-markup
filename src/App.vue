@@ -1,8 +1,7 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
 import Tweet from "./components/Tweet.vue";
-
+import TrendsForYou from "./components/TrendsForYou.vue";
+import RecommendUsers from "./components/RecommendUsers.vue";
 
 const data = [
   {
@@ -53,15 +52,45 @@ const data = [
   },
 ]
 
-import TrendsForYou from "./components/TrendsForYou.vue";
-const trends=[
+const trends = [
   {
-    trendsname: string,
-    tweetcount: string,
+    trendsname:"ファああい",
+    tweetcount:"34k",
+  },
+  {
+    trendsname:"受付先西口",
+    tweetcount:"34k",
+  },
+  {
+    trendsname:"俺超いい匂いびっくり",
+    tweetcount:"34k",
+  },
+  {
+    trendsname:"めけーも",
+    tweetcount:"34k",
   }
 ]
 
-
+const recommends = [
+  {
+    recommendusername: "TheNewYorkTimes",
+    recommendusernameid: "nytimes",
+    isAuthorized: true,
+    imgSrc:"/thenewyorktimes.svg"
+  },
+  {
+    recommendusername: "CNN",
+    recommendusernameid: "CNN",
+    isAuthorized: true,
+    imgSrc:"/cnn.svg"
+  },
+  {
+    recommendusername: "Twitter",
+    recommendusernameid: "twitter",
+    isAuthorized: true,
+    imgSrc:"/bird.svg"
+  },
+]
 </script>
 
 <template>
@@ -133,93 +162,26 @@ const trends=[
         </div>
         <div class="trends-for-you">
           Trends For You
-            <div class="trends-contents">
-              <div class="trends-line1">
-                <div>Trending in Japan</div>
-                <div>...</div>
-              </div>
-              <div class="trends-line2">
-                愛した人はNEET
-              </div>
-              <div class="trends-line3">
-                3,345 Tweets
-              </div>
-            </div>
-            <div class="trends-contents">
-              <div class="trends-line1">
-                <div>Trending in Japan</div>
-                <div>...</div>
-              </div>
-              <div class="trends-line2">
-                ノンケの尻足りん
-              </div>
-              <div class="trends-line3">
-                3,345 Tweets
-              </div>
-            </div>
-            <div class="trends-contents">
-              <div class="trends-line1">
-                <div>Trending in Japan</div>
-                <div>...</div>
-              </div>
-              <div class="trends-line2">
-                ぐぐランカー！！！
-              </div>
-              <div class="trends-line3">
-                3,345 Tweets
-              </div>
-            </div>
-            <div class="trends-contents">
-              <div class="trends-line1">
-                <div>Trending in Japan</div>
-                <div>...</div>
-              </div>
-              <div class="trends-line2">
-                ノーパンスタイリスト！！！
-              </div>
-              <div class="trends-line3">
-                3,345 Tweets
-              </div>
-            </div>
+          <TrendsForYou 
+            v-for="(trend, idx) in trends"
+            :key="idx"
+            :trendsname="trend.trendsname"
+            :tweetcount="trend.tweetcount"
+          />
             <div class="showmore">
               Show More
             </div>
           </div>
         <div class="who-to-follow">
           Who To Follow
-          <div class="recommend-user">
-            <img src="/thenewyorktimes.svg" class="thenewyorktimes" />
-              <div class="recommend-username">
-                  The New York Times
-                  <div class="recommend-usernameid">@nytimes</div>
-              </div>
-            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
-            <div class="recommend-user-follow">
-              Follow
-            </div>  
-          </div>
-          <div class="recommend-user">
-            <img src="/cnn.svg" class="cnn" />
-              <div class="recommend-username">
-                  CNN
-                  <div class="recommend-usernameid">@CNN</div>
-              </div>
-            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
-            <div class="recommend-user-follow">
-              Follow
-            </div>  
-          </div>
-          <div class="recommend-user">
-            <img src="/bird.svg" class="twitter" />
-              <div class="recommend-username">
-                  Twitter
-                  <div class="recommend-usernameid">@twitter</div>
-              </div>
-            <img src="/authorize-mark.svg" class="recommend-authorize-mark" />  
-            <div class="recommend-user-follow">
-              Follow
-            </div>  
-          </div>
+          <RecommendUsers
+            v-for="(r,idx) in recommends"
+            :key="idx"
+            :recommendusername="r.recommendusername"
+            :recommendusernameid="r.recommendusernameid"
+            :isAuthorized="r.isAuthorized"
+            :imgSrc="r.imgSrc"
+          />
           <div class="showmore">
               Show More
           </div>
@@ -421,22 +383,6 @@ const trends=[
 }
 .retweet-number{
   margin-right: 40px;
-}
-.trends-line1{
-  font-size: 13px;
-  color: gray;
-  display: flex;
-  justify-content: space-between;
-}
-.trends-line2{
-  font-size: 15px;
-}
-.trends-line3{
-  font-size: 13px;
-  color: gray;
-}
-.trends-contents{
-  margin-top: 20px;
 }
 .showmore{
   margin-top: 20px;
