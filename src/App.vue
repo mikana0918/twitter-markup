@@ -1,7 +1,7 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
-import Tweet from "./components/Tweet.vue"
+import Tweet from "./components/Tweet.vue";
 
 
 const data = [
@@ -52,6 +52,16 @@ const data = [
     imgSrc: "/curry.jpeg"
   },
 ]
+
+import TrendsForYou from "./components/TrendsForYou.vue";
+const trends=[
+  {
+    trendsname: string,
+    tweetcount: string,
+  }
+]
+
+
 </script>
 
 <template>
@@ -69,14 +79,14 @@ const data = [
         <div class="tweet-bottun">
         Tweet
         </div>
-        <div class="myaccount">
+        <div class="my-account">
           <img src="/Profile-Photo.svg" class="Profile-Photo" />
               <div class="my-username">
                   ホモレモン
                   <div class="my-usernameid">@homolemon</div>
               </div>
             <img src="/key-account.svg" class="key-account" />  
-            <div class="myaccount-option">
+            <div class="my-account-option">
               ...
             </div>  
         </div>
@@ -461,7 +471,7 @@ const data = [
   position: relative;
   margin-bottom: 22px;
 }
-.myaccount{
+.my-account{
   width: 251;
   height: 64;
   display: flex;
@@ -482,7 +492,7 @@ const data = [
   position: relative;
   margin-bottom: 30px;
 }
-.myaccount-option{
+.my-account-option{
   position: absolute;
   margin-left: 200px;
   margin-top: 8px;
