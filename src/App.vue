@@ -5,46 +5,46 @@ import RecommendUsers from "./components/RecommendUsers.vue";
 
 const data = [
   {
-    userName: "志々雄",
+    userName: "○○株式会社人事部",
     isAuthorized: true,
     date: "Oct 4",
-    tweet: "この世は所詮、弱肉強食・・・青紫、貴様は弱いのだ！",
+    tweet: "今日は5人もの学生を採用しました。",
     replyCount: "22.4k",
     favoriteCount: "76.4k",
     retweetCount: "1.2M",
   },
   {
-    userName: "剣心",
+    userName: "後輩",
     isAuthorized: true,
     date: "Oct 4",
-    tweet: "飛天御剣流！！！",
+    tweet: "最近はIT人材が足りないって経済産業省が言ってるなあ。",
     replyCount: "267k",
     favoriteCount: "56k",
     retweetCount: "123M",
   },
   {
-    userName: "宝治",
+    userName: "○○銀行",
     isAuthorized: true,
     date: "Oct 4",
-    tweet: "志々雄様は最強最高なのだ！！！",
+    tweet: "住宅ローンの金利下げます。",
     replyCount: "22.4k",
     favoriteCount: "785.4k",
     retweetCount: "3.3M",
   },
   {
-    userName: "佐之助",
+    userName: "○○省",
     isAuthorized: true,
     date: "Oct 4",
-    tweet: "二重の極み！！！",
+    tweet: "年々労働災害が増えています！",
     replyCount: "22.4k",
     favoriteCount: "785.4k",
     retweetCount: "3.3M",
   },
   {
-    userName: "AOC",
+    userName: "隣人",
     isAuthorized: true,
     date: "Oct 4",
-    tweet: "支店を板に吊るしてギリギリ太るカレーセット！俺はちなみに今晩は豚バラ野菜炒めを作ったンゴ。",
+    tweet: "今日はカレーを作ってみた！",
     replyCount: "22.4k",
     favoriteCount: "785.4k",
     retweetCount: "3.3M",
@@ -54,19 +54,19 @@ const data = [
 
 const trends = [
   {
-    trendsname:"ファああい",
+    trendsname:"ドル円相場",
     tweetcount:"34k",
   },
   {
-    trendsname:"受付先西口",
+    trendsname:"大谷翔平",
     tweetcount:"34k",
   },
   {
-    trendsname:"俺超いい匂いびっくり",
+    trendsname:"蓄電池産業",
     tweetcount:"34k",
   },
   {
-    trendsname:"めけーも",
+    trendsname:"メタバース",
     tweetcount:"34k",
   }
 ]
@@ -111,8 +111,8 @@ const recommends = [
         <div class="my-account">
           <img src="/Profile-Photo.svg" class="Profile-Photo" />
               <div class="my-username">
-                  ホモレモン
-                  <div class="my-usernameid">@homolemon</div>
+                  岸本 優
+                  <div class="my-usernameid">@yuukishimoto</div>
               </div>
             <img src="/key-account.svg" class="key-account" />  
             <div class="my-account-option">
