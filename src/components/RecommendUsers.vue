@@ -1,45 +1,46 @@
 <script>
-  export default {
-    name: 'RecommendUsers',
-    props: {
-      recommendusername: String,
-      recommendusernameid: String,
-      isAuthorized: Number,
-      imgSrc: String,
-    }
-  }
+export default {
+  name: "RecommendUsers",
+  props: {
+    recommendusername: String,
+    recommendusernameid: String,
+    isAuthorized: Boolean,
+    imgSrc: String,
+  },
+};
 </script>
 
-
 <template>
-<div class="recommend-user">
-  <img v-if="imgSrc" :src="imgSrc" />
+  <div class="recommend-user">
+    <img v-if="imgSrc" :src="imgSrc" />
     <div class="recommend-username">
-        {{recommendusername}}
-        <div class="recommend-usernameid">@{{recommendusernameid}}</div>
+      {{ recommendusername }}
+      <div class="recommend-usernameid">@{{ recommendusernameid }}</div>
     </div>
-  <img v-if="isAuthorized" src="/authorize-mark.svg" class="recommend-authorize-mark"/> 
-  <div class="recommend-user-follow">
-    Follow
-  </div>  
-</div>
+    <img
+      v-if="isAuthorized"
+      src="/authorize-mark.svg"
+      class="recommend-authorize-mark"
+    />
+    <div class="recommend-user-follow">Follow</div>
+  </div>
 </template>
 
 <style scoped>
-.recommend-user{
+.recommend-user {
   display: flex;
   margin-top: 20px;
 }
-.recommend-username{
+.recommend-username {
   display: block;
   color: white;
   margin-left: 10px;
 }
-.recommend-usernameid{
-  color: #6E767D;
+.recommend-usernameid {
+  color: #6e767d;
   font-size: 15px;
 }
-.recommend-user-follow{
+.recommend-user-follow {
   position: absolute;
   margin-left: 10px;
   margin-left: 235px;
@@ -50,7 +51,7 @@
   color: black;
   font-size: 13px;
 }
-.recommend-authorize-mark{
+.recommend-authorize-mark {
   position: relative;
   margin-bottom: 22px;
 }
