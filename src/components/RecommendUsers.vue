@@ -2,8 +2,8 @@
 export default {
   name: "RecommendUsers",
   props: {
-    recommendusername: String,
-    recommendusernameid: String,
+    recommendUsername: String,
+    recommendUsernameId: String,
     isAuthorized: Boolean,
     imgSrc: String,
   },
@@ -14,8 +14,8 @@ export default {
   <div class="recommend-user">
     <img v-if="imgSrc" :src="imgSrc" />
     <div class="recommend-username">
-      {{ recommendusername }}
-      <div class="recommend-usernameid">@{{ recommendusernameid }}</div>
+      {{ recommendUsername }}
+      <div class="recommend-usernameid">@{{ recommendUsernameId }}</div>
     </div>
     <img
       v-if="isAuthorized"

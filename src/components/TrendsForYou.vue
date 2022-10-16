@@ -1,13 +1,12 @@
 <script>
 export default {
-  name: 'TrendsForYou',
+  name: "TrendsForYou",
   props: {
-    trendsname: String,
-    tweetcount: String,
-  }
-}
+    trendsName: String,
+    tweetCount: String,
+  },
+};
 </script>
-
 
 <template>
   <div class="trends-contents">
@@ -16,32 +15,27 @@ export default {
       <div>...</div>
     </div>
     <div class="trends-line2">
-      {{trendsname}}
+      {{ trendsName }}
     </div>
-    <div class="trends-line3">
-      {{tweetcount}} Tweets
-    </div>
+    <div class="trends-line3">{{ tweetCount }} Tweets</div>
   </div>
 </template>
 
 <style scoped>
-.trends-line1{
+.trends-line1 {
   font-size: 13px;
   color: gray;
   display: flex;
   justify-content: space-between;
 }
-.trends-line2{
+.trends-line2 {
   font-size: 15px;
 }
-.trends-line3{
+.trends-line3 {
   font-size: 13px;
   color: gray;
 }
-.trends-contents{
+.trends-contents {
   margin-top: 20px;
 }
 </style>
-
-
-

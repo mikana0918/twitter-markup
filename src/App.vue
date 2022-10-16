@@ -5,53 +5,64 @@ import TrendsForYou from "./components/TrendsForYou.vue";
 import RecommendUsers from "./components/RecommendUsers.vue";
 import { tweet } from "./api/tweet";
 
+const tweetBody = ref("");
 const tweetList = ref([]);
 
+const refreshTimeline = async () => (tweetList.value = await fetchTimeline());
+
 onMounted(async () => {
-  const tl = await tweet.list();
-
-  tweetList.value = tl;
-
-  console.log(tl);
+  refreshTimeline();
 });
+
+const fetchTimeline = async () => await tweet.list();
+
+const postTweet = async () => {
+  await tweet.create({ body: tweetBody.value });
+  await refreshTimeline();
+};
+
+const handleFavorite = async (tweetId) => {
+  await tweet.favoriteById(tweetId);
+  await refreshTimeline();
+};
 
 const trends = [
   {
-    trendsname: "ファああい",
-    tweetcount: "34k",
+    trendsName: "ファああい",
+    tweetCount: "34k",
   },
   {
-    trendsname: "受付先西口",
-    tweetcount: "34k",
+    trendsName: "受付先西口",
+    tweetCount: "34k",
   },
   {
-    trendsname: "俺超いい匂いびっくり",
-    tweetcount: "34k",
+    trendsName: "俺超いい匂いびっくり",
+    tweetCount: "34k",
   },
   {
-    trendsname: "めけーも",
-    tweetcount: "34k",
+    trendsName: "めけーも",
+    tweetCount: "34k",
   },
 ];
 
 const recommends = [
   {
-    recommendusername: "TheNewYorkTimes",
-    recommendusernameid: "nytimes",
+    recommendUsername: "TheNewYorkTimes",
+    recommendUsernameId: "nytimes",
     isAuthorized: true,
-    imgSrc: "/thenewyorktimes.svg",
+    imgSrc: "/assets/thenewyorktimes.svg",
   },
   {
-    recommendusername: "CNN",
-    recommendusernameid: "CNN",
+    recommendUsername: "CNN",
+    recommendUsernameId: "CNN",
     isAuthorized: true,
-    imgSrc: "/cnn.svg",
+    imgSrc: "/assets/cnn.svg",
   },
   {
-    recommendusername: "Twitter",
-    recommendusernameid: "twitter",
+    recommendUsername: "Twitter",
+    recommendUsernameId: "twitter",
     isAuthorized: true,
-    imgSrc: "/bird.svg",
+    imgSrc: "/assets/bird.svg",
   },
 ];
 </script>
@@ -61,19 +72,19 @@ const recommends = [
     <div class="container">
       <!-- sidebar左側のやつ！ -->
       <div class="sidebar">
-        <img src="/twitter-icon.svg" class="twitter-icon" />
+        <img src="/assets/twitter-icon.svg" class="twitter-icon" />
         <div class="menu-items">
-          <img src="/home-icon.svg" class="home-icon" />
+          <img src="/assets/home-icon.svg" class="home-icon" />
           <div>HOME</div>
         </div>
         <div class="tweet-bottun">Tweet</div>
         <div class="my-account">
-          <img src="/Profile-Photo.svg" class="Profile-Photo" />
+          <img src="/assets/Profile-Photo.svg" class="Profile-Photo" />
           <div class="my-username">
             ホモレモン
             <div class="my-usernameid">@homolemon</div>
           </div>
-          <img src="/key-account.svg" class="key-account" />
+          <img src="/assets/key-account.svg" class="key-account" />
           <div class="my-account-option">...</div>
         </div>
       </div>
@@ -83,22 +94,25 @@ const recommends = [
         <div class="editor">
           <div class="editor-draft">
             <div>
-              <img src="/bird.svg" class="bird" />
+              <img src="/assets/bird.svg" class="bird" />
             </div>
             <textarea
+              v-model="tweetBody"
               placeholder="What's Happening?"
               class="tweet-editor"
             ></textarea>
           </div>
           <!-- ボタン本体 -->
           <div class="editor-control">
-            <div class="tweet-bottun-timeline">Tweet</div>
+            <div class="tweet-bottun-timeline" @click="postTweet">Tweet</div>
           </div>
         </div>
         <div class="new-tweet">
+          <!-- TODO: Add tweet attachments -->
           <Tweet
             v-for="(d, idx) in tweetList"
             :key="idx"
+            :id="d.id"
             :user-name="d.user.name"
             :is-authorized="false"
             :date="d.created_at"
@@ -107,13 +121,14 @@ const recommends = [
             :favorite-count="d.favorites_count"
             :retweet-count="d.retweets_count"
             :img-src="d.user.icon_path"
+            @favorite="handleFavorite"
           />
         </div>
       </div>
       <!-- trends -->
       <div class="trends">
         <div class="twitter-search">
-          <img src="/search.svg" class="search-icon" />
+          <img src="/assets/search.svg" class="search-icon" />
           Search Twitter
         </div>
         <div class="trends-for-you">
@@ -121,8 +136,8 @@ const recommends = [
           <TrendsForYou
             v-for="(trend, idx) in trends"
             :key="idx"
-            :trendsname="trend.trendsname"
-            :tweetcount="trend.tweetcount"
+            :trendsName="trend.trendsName"
+            :tweetCount="trend.tweetCount"
           />
           <div class="showmore">Show More</div>
         </div>
@@ -131,8 +146,8 @@ const recommends = [
           <RecommendUsers
             v-for="(r, idx) in recommends"
             :key="idx"
-            :recommendusername="r.recommendusername"
-            :recommendusernameid="r.recommendusernameid"
+            :recommendUsername="r.recommendUsername"
+            :recommendUsernameId="r.recommendUsernameId"
             :isAuthorized="r.isAuthorized"
             :imgSrc="r.imgSrc"
           />
@@ -185,7 +200,6 @@ const recommends = [
   overflow: hidden;
 }
 .tweet-bottun-timeline {
-  /* position:absolute; */
   font-size: 5px;
   color: white;
   text-align: center;
@@ -193,7 +207,7 @@ const recommends = [
   border-color: #1d9bf0;
   background: #1d9bf0;
   border-radius: 80px;
-  /* margin-left:520px; */
+  cursor: pointer;
   padding-top: 5px;
   padding-bottom: 5px;
   width: 70px;
