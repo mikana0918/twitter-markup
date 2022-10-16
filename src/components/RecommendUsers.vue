@@ -19,7 +19,7 @@ export default {
     </div>
     <img
       v-if="isAuthorized"
-      src="/authorize-mark.svg"
+      src="/assets/authorize-mark.svg"
       class="recommend-authorize-mark"
     />
     <div class="recommend-user-follow">Follow</div>

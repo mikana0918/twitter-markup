@@ -25,7 +25,7 @@ defineProps({
         <div class="user-name">{{ userName }}</div>
         <img
           v-if="isAuthorized"
-          src="/authorize-mark.svg"
+          src="/assets/authorize-mark.svg"
           class="authorize-mark"
         />
         <div class="tweet-date">
